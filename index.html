@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="稳链AI Zero Hub AI - 企业全链路AI服务商，提供私有化AI全栈交付、智能Agent编排体系、企业AI内训与AI落地咨询。" />
+  <meta name="keywords" content="稳链AI, Zero Hub AI, ZeroHub.AI, AI服务商, 私有化AI部署, Agent编排, 企业AI内训, 企业AI解决方案" />
+  <title>稳链AI Zero Hub AI | 企业全链路AI服务商</title>
+  <link rel="icon" href="https://imagehub.tianzeqi.dev/file/favicon/1777104933180_image.png" type="image/png" />
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --cyan: #22d3ee;
+      --bg: #07111f;
+      --bg-soft: #0b1728;
+      --card: rgba(15, 23, 42, 0.78);
+      --border: rgba(148, 163, 184, 0.18);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --muted-light: #cbd5e1;
+      --white: #ffffff;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --shadow: 0 24px 80px rgba(15, 23, 42, 0.48);
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(37, 99, 235, 0.32), transparent 32%),
+        radial-gradient(circle at 84% 12%, rgba(34, 211, 238, 0.2), transparent 30%),
+        linear-gradient(180deg, #07111f 0%, #08111f 48%, #050b14 100%);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(100% - 40px, var(--container)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.76);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; min-width: fit-content; }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      border: 1px solid rgba(96, 165, 250, 0.28);
+      background-color: rgba(255, 255, 255, 0.04);
+      background-image: url("https://imagehub.tianzeqi.dev/file/favicon/1777104933180_image.png");
+      background-position: center;
+      background-size: 76%;
+      background-repeat: no-repeat;
+      box-shadow: 0 10px 26px rgba(37, 99, 235, 0.18);
+      overflow: hidden;
+    }
+
+    .brand-text strong { display: block; font-size: 18px; letter-spacing: 0.02em; }
+    .brand-text span { display: block; margin-top: -3px; color: var(--muted); font-size: 12px; }
+
+    .nav-links { display: flex; align-items: center; justify-content: center; gap: 26px; color: var(--muted-light); font-size: 14px; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; min-width: fit-content; }
+
+    .btn, .lang-btn, .menu-btn, .submit-btn {
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--white); background: linear-gradient(135deg, var(--primary), var(--cyan)); box-shadow: 0 18px 42px rgba(37, 99, 235, 0.38); }
+    .btn-secondary { color: var(--white); background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(148, 163, 184, 0.24); }
+
+    .lang-btn {
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: var(--white);
+      background: rgba(37, 99, 235, 0.18);
+      border: 1px solid rgba(96, 165, 250, 0.42);
+      font-weight: 700;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      font-size: 22px;
+    }
+
+    .hero { padding: 92px 0 72px; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items: center; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      margin-bottom: 22px;
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(37, 99, 235, 0.14);
+      border: 1px solid rgba(96, 165, 250, 0.22);
+      font-size: 14px;
+    }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--cyan); box-shadow: 0 0 18px var(--cyan); }
+    h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.08; letter-spacing: -0.05em; margin-bottom: 24px; }
+    .gradient-text { background: linear-gradient(135deg, #f8fafc, #93c5fd 50%, #67e8f9); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-subtitle { max-width: 700px; color: var(--muted-light); font-size: 18px; margin-bottom: 34px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 32px; }
+
+    .quick-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted-light);
+      font-size: 14px;
+    }
+    .quick-contact a { padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(148,163,184,0.14); }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.3)),
+        url("https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(96, 165, 250, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(96, 165, 250, 0.09) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+    .visual-card {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(2, 6, 23, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      backdrop-filter: blur(18px);
+    }
+    .flow-line { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+    .flow-item { padding: 12px; border-radius: 16px; text-align: center; color: #dbeafe; font-size: 12px; background: rgba(37, 99, 235, 0.16); border: 1px solid rgba(96, 165, 250, 0.22); }
+
+    section { padding: 86px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
+    .section-kicker { color: #60a5fa; font-size: 14px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+    .section-title { max-width: 800px; font-size: clamp(30px, 4vw, 46px); line-height: 1.18; letter-spacing: -0.04em; }
+    .section-desc { max-width: 460px; color: var(--muted-light); }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .card {
+      position: relative;
+      padding: 26px;
+      border-radius: var(--radius-md);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 52px rgba(2, 6, 23, 0.18);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -90px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 72%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      color: var(--white);
+      background: linear-gradient(135deg, #2563eb, #22d3ee);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.28);
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .icon::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.96), rgba(34, 211, 238, 0.82));
+      z-index: -1;
+    }
+    .card h3 { font-size: 20px; margin-bottom: 10px; }
+    .card p, .card li { color: var(--muted-light); font-size: 15px; }
+    .card ul { list-style: none; margin-top: 18px; display: grid; gap: 10px; }
+    .card li { position: relative; padding-left: 18px; }
+    .card li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 999px; background: var(--cyan); }
+
+    .service-panel {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(15, 23, 42, 0.76));
+      border: 1px solid rgba(96, 165, 250, 0.2);
+    }
+    .service-panel:nth-child(even) { grid-template-columns: 1.08fr 0.92fr; }
+    .service-image { min-height: 300px; border-radius: 24px; border: 1px solid rgba(148, 163, 184, 0.16); background-size: cover; background-position: center; }
+    .service-image.infrastructure { background-image: linear-gradient(145deg, rgba(7,17,31,0.2), rgba(7,17,31,0.65)), url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80"); }
+    .service-image.agent { background-image: linear-gradient(145deg, rgba(7,17,31,0.2), rgba(7,17,31,0.65)), url("https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1000&q=80"); }
+    .service-image.training { background-image: linear-gradient(145deg, rgba(7,17,31,0.2), rgba(7,17,31,0.65)), url("https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80"); }
+
+    .feature-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+    .tag { padding: 7px 11px; border-radius: 999px; color: #dbeafe; font-size: 13px; background: rgba(37, 99, 235, 0.16); border: 1px solid rgba(96, 165, 250, 0.22); }
+
+    .capability-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.24), rgba(15, 23, 42, 0.88));
+      border: 1px solid rgba(96, 165, 250, 0.24);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-methods { display: grid; gap: 14px; margin-top: 22px; }
+    .contact-methods a { display: flex; justify-content: space-between; gap: 16px; padding: 16px; border-radius: 18px; background: rgba(255,255,255,0.06); border: 1px solid rgba(148,163,184,0.16); color: var(--muted-light); }
+    .contact-methods strong { color: var(--white); }
+
+    .consult-form { display: grid; gap: 14px; }
+    .consult-form input, .consult-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      background: rgba(2, 6, 23, 0.54);
+      color: var(--white);
+      outline: none;
+      font-family: inherit;
+    }
+    .consult-form textarea { min-height: 130px; resize: vertical; }
+    .consult-form input:focus, .consult-form textarea:focus { border-color: rgba(96, 165, 250, 0.8); }
+    .submit-btn { min-height: 46px; border-radius: 999px; color: var(--white); font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--cyan)); }
+    .form-note { color: var(--muted); font-size: 13px; }
+
+    .site-footer { padding: 62px 0 34px; border-top: 1px solid rgba(148, 163, 184, 0.14); background: rgba(2, 6, 23, 0.34); }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr; gap: 40px; margin-bottom: 34px; }
+    .footer-grid h3 { margin-bottom: 14px; font-size: 18px; }
+    .footer-grid p, .footer-grid a { color: var(--muted-light); font-size: 15px; }
+    .footer-links { display: grid; gap: 10px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; border-top: 1px solid rgba(148, 163, 184, 0.12); color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 980px) {
+      .menu-btn { display: block; }
+      .nav-links {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 86px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 14px;
+        border-radius: 20px;
+        background: rgba(2, 6, 23, 0.96);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+      }
+      .nav-links.active { display: flex; }
+      .nav-links a { padding: 12px 10px; }
+      .nav-actions .btn-secondary { display: none; }
+      .hero-grid, .service-panel, .service-panel:nth-child(even), .contact-panel, .footer-grid { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 420px; }
+      .grid-3, .grid-4, .capability-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--container)); }
+      .navbar { height: 68px; }
+      .brand-text span { display: none; }
+      .hero { padding: 58px 0 42px; }
+      .hero-actions, .footer-bottom { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .grid-3, .grid-4, .capability-strip { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-desc { margin-top: 12px; }
+      .visual-card { left: 18px; right: 18px; bottom: 18px; padding: 18px; }
+      .flow-line { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 62px 0; }
+      .service-panel, .contact-panel { padding: 22px; }
+      .contact-methods a { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="#top" class="brand" aria-label="Zero Hub AI Home">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <strong data-i18n="brandName">稳链AI</strong>
+          <span>Zero Hub AI</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary Navigation">
+        <a href="#services" data-i18n="navServices">核心业务</a>
+        <a href="#capabilities" data-i18n="navCapabilities">技术优势</a>
+        <a href="#delivery" data-i18n="navDelivery">交付保障</a>
+        <a href="#contact" data-i18n="navContact">联系我们</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="lang-btn" id="langToggle" type="button" aria-label="Switch Language">中文</button>
+        <a class="btn btn-secondary" href="https://api.zerohub.ai/" target="_blank" rel="noopener" data-i18n="navApi">API入口</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow" data-i18n="heroEyebrow">全链路企业AI服务商 · ZeroHub.AI</div>
+          <h1><span data-i18n="heroTitleA">让企业AI能力</span><br /><span class="gradient-text" data-i18n="heroTitleB">安全部署，高效落地</span></h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">稳链AI围绕私有化AI全栈交付、智能Agent编排体系与企业AI内训，帮助企业从基础设施、模型应用、业务流程到团队能力形成完整AI落地闭环。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://api.zerohub.ai/" target="_blank" rel="noopener" data-i18n="heroPrimaryBtn">立即体验稳链API →</a>
+            <a class="btn btn-secondary" href="#contact" data-i18n="heroSecondaryBtn">获取AI落地方案</a>
+          </div>
+          <div class="quick-contact">
+            <a href="mailto:Support@zerohub.ai">Support@zerohub.ai</a>
+            <a href="tel:+8617369575134">+86 17369575134</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="AI service platform visual">
+          <div class="visual-card">
+            <h3 data-i18n="visualTitle">企业AI能力中枢</h3>
+            <p data-i18n="visualDesc">统一连接模型、知识库、业务系统与Agent工作流，形成可运营、可审计、可扩展的企业AI底座。</p>
+            <div class="flow-line">
+              <div class="flow-item" data-i18n="flow1">AI基础设施</div>
+              <div class="flow-item" data-i18n="flow2">模型定制</div>
+              <div class="flow-item" data-i18n="flow3">Agent编排</div>
+              <div class="flow-item" data-i18n="flow4">业务落地</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker" data-i18n="servicesKicker">CORE SERVICES</div>
+            <h2 class="section-title" data-i18n="servicesTitle">三大核心服务，覆盖企业AI落地全链路</h2>
+          </div>
+          <p class="section-desc" data-i18n="servicesDesc">从底层部署到流程自动化，再到组织培训，稳链AI帮助企业降低AI建设门槛，提升AI应用的稳定性、安全性与业务转化效率。</p>
+        </div>
+
+        <article class="service-panel">
+          <div class="service-image infrastructure" aria-hidden="true"></div>
+          <div>
+            <div class="icon">01</div>
+            <h3 data-i18n="service1Title">私有化AI全栈交付</h3>
+            <p data-i18n="service1Desc">面向有数据安全、业务独立性和长期成本控制需求的企业，提供从AI基础设施规划、模型服务部署到数据安全合规的完整交付。</p>
+            <div class="feature-tags">
+              <span class="tag" data-i18n="service1Tag1">AI基础设施部署</span>
+              <span class="tag" data-i18n="service1Tag2">模型定制开发</span>
+              <span class="tag" data-i18n="service1Tag3">数据安全合规</span>
+            </div>
+            <ul>
+              <li data-i18n="service1Li1">支持本地服务器、私有云、混合云等多种部署环境</li>
+              <li data-i18n="service1Li2">按业务场景接入或定制大模型、Embedding模型与RAG知识库</li>
+              <li data-i18n="service1Li3">配置权限隔离、日志审计、数据脱敏与访问控制策略</li>
+              <li data-i18n="service1Li4">适用于企业知识库、智能客服、内部助手与行业专属AI平台</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="service-panel">
+          <div>
+            <div class="icon">02</div>
+            <h3 data-i18n="service2Title">智能Agent编排体系</h3>
+            <p data-i18n="service2Desc">基于多Agent协同架构，为企业搭建可视化、可配置、可扩展的自动化工作流，让AI不止回答问题，而是参与任务执行。</p>
+            <div class="feature-tags">
+              <span class="tag" data-i18n="service2Tag1">多Agent协同架构</span>
+              <span class="tag" data-i18n="service2Tag2">行业场景编排</span>
+              <span class="tag" data-i18n="service2Tag3">自动化工作流</span>
+            </div>
+            <ul>
+              <li data-i18n="service2Li1">支持任务拆解、工具调用、知识检索、结果校验等Agent链路</li>
+              <li data-i18n="service2Li2">可对接CRM、ERP、表格、数据库、客服系统与自有API</li>
+              <li data-i18n="service2Li3">适配销售运营、跨境电商、内容生产、客户服务与数据分析场景</li>
+              <li data-i18n="service2Li4">支持低代码流程配置，便于业务团队持续迭代</li>
+            </ul>
+          </div>
+          <div class="service-image agent" aria-hidden="true"></div>
+        </article>
+
+        <article class="service-panel">
+          <div class="service-image training" aria-hidden="true"></div>
+          <div>
+            <div class="icon">03</div>
+            <h3 data-i18n="service3Title">企业AI内训</h3>
+            <p data-i18n="service3Desc">围绕企业管理层、业务团队和技术团队的不同需求，设计AI技术科普、落地实践培训与定制化课程体系，提升组织整体AI应用能力。</p>
+            <div class="feature-tags">
+              <span class="tag" data-i18n="service3Tag1">AI技术科普</span>
+              <span class="tag" data-i18n="service3Tag2">落地实践培训</span>
+              <span class="tag" data-i18n="service3Tag3">定制化课程体系</span>
+            </div>
+            <ul>
+              <li data-i18n="service3Li1">管理层AI战略认知、业务机会识别与组织升级路径</li>
+              <li data-i18n="service3Li2">业务团队Prompt、Agent工具、知识库与办公自动化实训</li>
+              <li data-i18n="service3Li3">技术团队模型部署、RAG工程、Agent开发与系统集成课程</li>
+              <li data-i18n="service3Li4">结合企业真实业务资料设计案例演练和落地任务</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker" data-i18n="capKicker">TECH CAPABILITIES</div>
+            <h2 class="section-title" data-i18n="capTitle">技术能力与服务优势</h2>
+          </div>
+          <p class="section-desc" data-i18n="capDesc">稳链AI以工程化交付为核心，兼顾模型能力、数据安全、系统集成与后续运维，帮助企业获得可持续的AI生产力。</p>
+        </div>
+
+        <div class="capability-strip">
+          <article class="card">
+            <div class="icon">A</div>
+            <h3 data-i18n="cap1Title">模型接入与定制</h3>
+            <p data-i18n="cap1Desc">支持多模型路由、私有模型部署、行业知识增强与业务规则融合。</p>
+          </article>
+          <article class="card">
+            <div class="icon">B</div>
+            <h3 data-i18n="cap2Title">知识库与RAG工程</h3>
+            <p data-i18n="cap2Desc">覆盖文档清洗、向量化、召回优化、答案溯源与知识质量评估。</p>
+          </article>
+          <article class="card">
+            <div class="icon">C</div>
+            <h3 data-i18n="cap3Title">安全合规治理</h3>
+            <p data-i18n="cap3Desc">围绕权限、审计、脱敏、访问控制与部署隔离，降低企业数据风险。</p>
+          </article>
+          <article class="card">
+            <div class="icon">D</div>
+            <h3 data-i18n="cap4Title">持续运营优化</h3>
+            <p data-i18n="cap4Desc">通过效果评估、反馈闭环、Prompt优化与流程迭代提升AI系统ROI。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="delivery">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker" data-i18n="deliveryKicker">DELIVERY GUARANTEE</div>
+            <h2 class="section-title" data-i18n="deliveryTitle">以标准化交付路径，保障AI项目落地质量</h2>
+          </div>
+        </div>
+        <div class="grid-4">
+          <article class="card"><div class="icon">1</div><h3 data-i18n="delivery1Title">需求诊断</h3><p data-i18n="delivery1Desc">梳理业务流程、数据基础、系统现状与ROI目标，明确优先落地场景。</p></article>
+          <article class="card"><div class="icon">2</div><h3 data-i18n="delivery2Title">方案设计</h3><p data-i18n="delivery2Desc">输出技术架构、部署方式、模型策略、Agent流程与安全治理方案。</p></article>
+          <article class="card"><div class="icon">3</div><h3 data-i18n="delivery3Title">工程实施</h3><p data-i18n="delivery3Desc">完成环境搭建、模型接入、知识库建设、系统集成与业务验收。</p></article>
+          <article class="card"><div class="icon">4</div><h3 data-i18n="delivery4Title">运维迭代</h3><p data-i18n="delivery4Desc">提供监控、培训、优化、版本迭代与长期技术支持，确保稳定运行。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-panel">
+        <div>
+          <div class="section-kicker" data-i18n="contactKicker">CONTACT US</div>
+          <h2 class="section-title" data-i18n="contactTitle">从一个AI落地场景开始沟通</h2>
+          <p class="section-desc" data-i18n="contactDesc">无论你需要私有化部署、Agent自动化流程，还是企业AI培训，都可以联系稳链AI获取初步方案建议。</p>
+          <div class="contact-methods">
+            <a href="mailto:Support@zerohub.ai"><strong data-i18n="emailLabel">邮箱</strong><span>Support@zerohub.ai</span></a>
+            <a href="tel:+8617369575134"><strong data-i18n="phoneLabel">电话</strong><span>+86 17369575134</span></a>
+            <a href="https://api.zerohub.ai/" target="_blank" rel="noopener"><strong data-i18n="apiLabel">API服务</strong><span>https://api.zerohub.ai/</span></a>
+          </div>
+        </div>
+
+        <form class="consult-form" onsubmit="handleConsultSubmit(event)">
+          <input type="text" name="name" data-placeholder-key="formName" placeholder="您的称呼 / 公司名称" required />
+          <input type="email" name="email" data-placeholder-key="formEmail" placeholder="联系邮箱" required />
+          <input type="text" name="need" data-placeholder-key="formNeed" placeholder="咨询方向：私有化部署 / Agent编排 / AI内训" />
+          <textarea name="message" data-placeholder-key="formMessage" placeholder="简单描述你的业务场景或需求"></textarea>
+          <button class="submit-btn" type="submit" data-i18n="formSubmit">提交咨询</button>
+          <p class="form-note" id="formNote" data-i18n="formNote">表单为前端演示，可后续接入邮件、CRM或工单系统。</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 16px;">
+            <div class="brand-mark" aria-hidden="true"></div>
+            <div class="brand-text">
+              <strong data-i18n="footerBrand">稳链AI</strong>
+              <span>ZeroHub.AI</span>
+            </div>
+          </div>
+          <p data-i18n="footerDesc">企业全链路AI服务商，专注私有化AI全栈交付、智能Agent编排体系与企业AI内训。</p>
+        </div>
+        <div>
+          <h3 data-i18n="footerNavTitle">导航</h3>
+          <div class="footer-links">
+            <a href="#services" data-i18n="footerServices">核心业务</a>
+            <a href="#capabilities" data-i18n="footerCapabilities">技术优势</a>
+            <a href="#delivery" data-i18n="footerDelivery">交付保障</a>
+            <a href="#contact" data-i18n="footerContact">联系我们</a>
+          </div>
+        </div>
+        <div>
+          <h3 data-i18n="footerContactTitle">联系方式</h3>
+          <div class="footer-links">
+            <a href="mailto:Support@zerohub.ai">Support@zerohub.ai</a>
+            <a href="tel:+8617369575134">+86 17369575134</a>
+            <a href="https://api.zerohub.ai/" target="_blank" rel="noopener" data-i18n="footerApi">稳链API服务</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="copyright">© 2026 ZeroHub.AI 稳链AI. All rights reserved.</span>
+        <span data-i18n="domain">Official Website: ZeroHub.AI</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      zh: {
+        brandName: "稳链AI", navServices: "核心业务", navCapabilities: "技术优势", navDelivery: "交付保障", navContact: "联系我们", navApi: "API入口",
+        heroEyebrow: "全链路企业AI服务商 · ZeroHub.AI", heroTitleA: "让企业AI能力", heroTitleB: "安全部署，高效落地", heroSubtitle: "稳链AI围绕私有化AI全栈交付、智能Agent编排体系与企业AI内训，帮助企业从基础设施、模型应用、业务流程到团队能力形成完整AI落地闭环。", heroPrimaryBtn: "立即体验稳链API →", heroSecondaryBtn: "获取AI落地方案",
+        visualTitle: "企业AI能力中枢", visualDesc: "统一连接模型、知识库、业务系统与Agent工作流，形成可运营、可审计、可扩展的企业AI底座。", flow1: "AI基础设施", flow2: "模型定制", flow3: "Agent编排", flow4: "业务落地",
+        servicesKicker: "CORE SERVICES", servicesTitle: "三大核心服务，覆盖企业AI落地全链路", servicesDesc: "从底层部署到流程自动化，再到组织培训，稳链AI帮助企业降低AI建设门槛，提升AI应用的稳定性、安全性与业务转化效率。",
+        service1Title: "私有化AI全栈交付", service1Desc: "面向有数据安全、业务独立性和长期成本控制需求的企业，提供从AI基础设施规划、模型服务部署到数据安全合规的完整交付。", service1Tag1: "AI基础设施部署", service1Tag2: "模型定制开发", service1Tag3: "数据安全合规", service1Li1: "支持本地服务器、私有云、混合云等多种部署环境", service1Li2: "按业务场景接入或定制大模型、Embedding模型与RAG知识库", service1Li3: "配置权限隔离、日志审计、数据脱敏与访问控制策略", service1Li4: "适用于企业知识库、智能客服、内部助手与行业专属AI平台",
+        service2Title: "智能Agent编排体系", service2Desc: "基于多Agent协同架构，为企业搭建可视化、可配置、可扩展的自动化工作流，让AI不止回答问题，而是参与任务执行。", service2Tag1: "多Agent协同架构", service2Tag2: "行业场景编排", service2Tag3: "自动化工作流", service2Li1: "支持任务拆解、工具调用、知识检索、结果校验等Agent链路", service2Li2: "可对接CRM、ERP、表格、数据库、客服系统与自有API", service2Li3: "适配销售运营、跨境电商、内容生产、客户服务与数据分析场景", service2Li4: "支持低代码流程配置，便于业务团队持续迭代",
+        service3Title: "企业AI内训", service3Desc: "围绕企业管理层、业务团队和技术团队的不同需求，设计AI技术科普、落地实践培训与定制化课程体系，提升组织整体AI应用能力。", service3Tag1: "AI技术科普", service3Tag2: "落地实践培训", service3Tag3: "定制化课程体系", service3Li1: "管理层AI战略认知、业务机会识别与组织升级路径", service3Li2: "业务团队Prompt、Agent工具、知识库与办公自动化实训", service3Li3: "技术团队模型部署、RAG工程、Agent开发与系统集成课程", service3Li4: "结合企业真实业务资料设计案例演练和落地任务",
+        capKicker: "TECH CAPABILITIES", capTitle: "技术能力与服务优势", capDesc: "稳链AI以工程化交付为核心，兼顾模型能力、数据安全、系统集成与后续运维，帮助企业获得可持续的AI生产力。", cap1Title: "模型接入与定制", cap1Desc: "支持多模型路由、私有模型部署、行业知识增强与业务规则融合。", cap2Title: "知识库与RAG工程", cap2Desc: "覆盖文档清洗、向量化、召回优化、答案溯源与知识质量评估。", cap3Title: "安全合规治理", cap3Desc: "围绕权限、审计、脱敏、访问控制与部署隔离，降低企业数据风险。", cap4Title: "持续运营优化", cap4Desc: "通过效果评估、反馈闭环、Prompt优化与流程迭代提升AI系统ROI。",
+        deliveryKicker: "DELIVERY GUARANTEE", deliveryTitle: "以标准化交付路径，保障AI项目落地质量", delivery1Title: "需求诊断", delivery1Desc: "梳理业务流程、数据基础、系统现状与ROI目标，明确优先落地场景。", delivery2Title: "方案设计", delivery2Desc: "输出技术架构、部署方式、模型策略、Agent流程与安全治理方案。", delivery3Title: "工程实施", delivery3Desc: "完成环境搭建、模型接入、知识库建设、系统集成与业务验收。", delivery4Title: "运维迭代", delivery4Desc: "提供监控、培训、优化、版本迭代与长期技术支持，确保稳定运行。",
+        contactKicker: "CONTACT US", contactTitle: "从一个AI落地场景开始沟通", contactDesc: "无论你需要私有化部署、Agent自动化流程，还是企业AI培训，都可以联系稳链AI获取初步方案建议。", emailLabel: "邮箱", phoneLabel: "电话", apiLabel: "API服务", formName: "您的称呼 / 公司名称", formEmail: "联系邮箱", formNeed: "咨询方向：私有化部署 / Agent编排 / AI内训", formMessage: "简单描述你的业务场景或需求", formSubmit: "提交咨询", formNote: "表单为前端演示，可后续接入邮件、CRM或工单系统。", formSuccess: "已记录咨询信息。正式上线时建议接入后端邮件、CRM或工单系统。",
+        footerBrand: "稳链AI", footerDesc: "企业全链路AI服务商，专注私有化AI全栈交付、智能Agent编排体系与企业AI内训。", footerNavTitle: "导航", footerServices: "核心业务", footerCapabilities: "技术优势", footerDelivery: "交付保障", footerContact: "联系我们", footerContactTitle: "联系方式", footerApi: "稳链API服务", copyright: "© 2026 ZeroHub.AI 稳链AI. All rights reserved.", domain: "Official Website: ZeroHub.AI"
+      },
+      en: {
+        brandName: "Zero Hub AI", navServices: "Services", navCapabilities: "Capabilities", navDelivery: "Delivery", navContact: "Contact", navApi: "API Portal",
+        heroEyebrow: "Full-cycle Enterprise AI Service Provider · ZeroHub.AI", heroTitleA: "Deploy Enterprise AI", heroTitleB: "Securely and Efficiently", heroSubtitle: "Zero Hub AI delivers private full-stack AI implementation, intelligent Agent orchestration and enterprise AI training, helping companies build a complete AI implementation loop from infrastructure and model applications to workflows and team capability.", heroPrimaryBtn: "Try Zero Hub API →", heroSecondaryBtn: "Get AI Solution Advice",
+        visualTitle: "Enterprise AI Capability Hub", visualDesc: "Connect models, knowledge bases, business systems and Agent workflows into an operable, auditable and scalable enterprise AI foundation.", flow1: "AI Infrastructure", flow2: "Model Customization", flow3: "Agent Orchestration", flow4: "Business Deployment",
+        servicesKicker: "CORE SERVICES", servicesTitle: "Three core services covering the full enterprise AI lifecycle", servicesDesc: "From infrastructure deployment and workflow automation to organizational training, Zero Hub AI helps companies lower AI adoption barriers and improve stability, security and business conversion.",
+        service1Title: "Private Full-stack AI Delivery", service1Desc: "For enterprises with data security, business independence and long-term cost-control needs, we provide complete delivery from AI infrastructure planning and model service deployment to data security compliance.", service1Tag1: "AI Infrastructure", service1Tag2: "Model Customization", service1Tag3: "Data Security Compliance", service1Li1: "Support local servers, private cloud and hybrid cloud deployment environments", service1Li2: "Integrate or customize LLMs, embedding models and RAG knowledge bases based on business scenarios", service1Li3: "Configure permission isolation, log auditing, data masking and access control policies", service1Li4: "Suitable for enterprise knowledge bases, AI customer service, internal assistants and industry AI platforms",
+        service2Title: "Intelligent Agent Orchestration", service2Desc: "Based on multi-Agent collaboration, we build visual, configurable and scalable automated workflows so AI can move beyond answering questions and participate in task execution.", service2Tag1: "Multi-Agent Architecture", service2Tag2: "Industry Workflow Design", service2Tag3: "Automation Workflow", service2Li1: "Support task decomposition, tool calling, knowledge retrieval and result verification", service2Li2: "Connect with CRM, ERP, spreadsheets, databases, customer service systems and proprietary APIs", service2Li3: "Fit sales operations, cross-border commerce, content production, customer service and data analysis", service2Li4: "Support low-code workflow configuration for continuous business-side iteration",
+        service3Title: "Enterprise AI Training", service3Desc: "For executives, business teams and technical teams, we design AI literacy, implementation practice and customized course systems to improve organization-wide AI application capabilities.", service3Tag1: "AI Literacy", service3Tag2: "Implementation Training", service3Tag3: "Customized Curriculum", service3Li1: "Executive AI strategy awareness, opportunity identification and organizational upgrade paths", service3Li2: "Business team training on prompts, Agent tools, knowledge bases and office automation", service3Li3: "Technical courses on model deployment, RAG engineering, Agent development and system integration", service3Li4: "Use real enterprise materials to design scenario exercises and implementation tasks",
+        capKicker: "TECH CAPABILITIES", capTitle: "Technical capabilities and service advantages", capDesc: "With engineering delivery at the core, Zero Hub AI balances model capability, data security, system integration and ongoing operations to deliver sustainable AI productivity.", cap1Title: "Model Access and Customization", cap1Desc: "Support multi-model routing, private model deployment, industry knowledge enhancement and business rule integration.", cap2Title: "Knowledge Base and RAG Engineering", cap2Desc: "Cover document cleaning, vectorization, retrieval optimization, answer traceability and knowledge quality evaluation.", cap3Title: "Security and Compliance Governance", cap3Desc: "Reduce enterprise data risks through permissions, auditing, masking, access control and deployment isolation.", cap4Title: "Continuous Operations Optimization", cap4Desc: "Improve AI system ROI through performance evaluation, feedback loops, prompt optimization and workflow iteration.",
+        deliveryKicker: "DELIVERY GUARANTEE", deliveryTitle: "Standardized delivery path to ensure AI implementation quality", delivery1Title: "Requirement Diagnosis", delivery1Desc: "Review business processes, data foundations, system status and ROI goals to define priority scenarios.", delivery2Title: "Solution Design", delivery2Desc: "Deliver technical architecture, deployment mode, model strategy, Agent workflows and security governance plan.", delivery3Title: "Engineering Implementation", delivery3Desc: "Complete environment setup, model integration, knowledge base construction, system integration and business acceptance.", delivery4Title: "Operations and Iteration", delivery4Desc: "Provide monitoring, training, optimization, version iteration and long-term technical support for stable operation.",
+        contactKicker: "CONTACT US", contactTitle: "Start with one AI implementation scenario", contactDesc: "Whether you need private deployment, Agent automation or enterprise AI training, contact Zero Hub AI for initial solution advice.", emailLabel: "Email", phoneLabel: "Phone", apiLabel: "API Service", formName: "Your name / Company", formEmail: "Email address", formNeed: "Need: Private deployment / Agent orchestration / AI training", formMessage: "Briefly describe your business scenario or requirement", formSubmit: "Submit Inquiry", formNote: "This form is a front-end demo and can later be connected to email, CRM or ticketing systems.", formSuccess: "Inquiry information recorded. For production, connect this form to backend email, CRM or a ticketing system.",
+        footerBrand: "Zero Hub AI", footerDesc: "A full-cycle enterprise AI service provider focused on private full-stack AI delivery, intelligent Agent orchestration and enterprise AI training.", footerNavTitle: "Navigation", footerServices: "Services", footerCapabilities: "Capabilities", footerDelivery: "Delivery", footerContact: "Contact", footerContactTitle: "Contact", footerApi: "Zero Hub API Service", copyright: "© 2026 ZeroHub.AI Zero Hub AI. All rights reserved.", domain: "Official Website: ZeroHub.AI"
+      }
+    };
+
+    const langToggle = document.getElementById("langToggle");
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    let currentLang = "zh";
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      document.title = lang === "zh" ? "稳链AI Zero Hub AI | 企业全链路AI服务商" : "Zero Hub AI | Full-cycle Enterprise AI Service Provider";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.querySelectorAll("[data-placeholder-key]").forEach((el) => {
+        const key = el.getAttribute("data-placeholder-key");
+        if (translations[lang][key]) el.setAttribute("placeholder", translations[lang][key]);
+      });
+      langToggle.textContent = lang === "zh" ? "中文" : "English";
+    }
+
+    function handleConsultSubmit(event) {
+      event.preventDefault();
+      const note = document.getElementById("formNote");
+      note.textContent = translations[currentLang].formSuccess;
+      event.target.reset();
+    }
+
+    langToggle.addEventListener("click", () => applyLanguage(currentLang === "zh" ? "en" : "zh"));
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuBtn.textContent = navLinks.classList.contains("active") ? "×" : "☰";
+    });
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.textContent = "☰";
+      });
+    });
+  </script>
+</body>
+</html>
