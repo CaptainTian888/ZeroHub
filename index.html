@@ -558,13 +558,17 @@
           </div>
         </div>
 
-        <form class="consult-form" onsubmit="handleConsultSubmit(event)">
+        <form class="consult-form" action="https://formsubmit.co/Support@zerohub.ai" method="POST">
+          <input type="hidden" name="_subject" value="ZeroHub.AI 官网咨询表单" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_autoresponse" value="我们已收到您的咨询信息，稳链AI团队将尽快与您联系。" />
           <input type="text" name="name" data-placeholder-key="formName" placeholder="您的称呼 / 公司名称" required />
           <input type="email" name="email" data-placeholder-key="formEmail" placeholder="联系邮箱" required />
+          <input type="tel" name="phone" data-placeholder-key="formPhone" placeholder="联系电话 / 手机" />
           <input type="text" name="need" data-placeholder-key="formNeed" placeholder="咨询方向：私有化部署 / Agent编排 / AI内训" />
           <textarea name="message" data-placeholder-key="formMessage" placeholder="简单描述你的业务场景或需求"></textarea>
           <button class="submit-btn" type="submit" data-i18n="formSubmit">提交咨询</button>
-          <p class="form-note" id="formNote" data-i18n="formNote">表单为前端演示，可后续接入邮件、CRM或工单系统。</p>
         </form>
       </div>
     </section>
@@ -620,7 +624,7 @@
         service3Title: "企业AI内训", service3Desc: "围绕企业管理层、业务团队和技术团队的不同需求，设计AI技术科普、落地实践培训与定制化课程体系，提升组织整体AI应用能力。", service3Tag1: "AI技术科普", service3Tag2: "落地实践培训", service3Tag3: "定制化课程体系", service3Li1: "管理层AI战略认知、业务机会识别与组织升级路径", service3Li2: "业务团队Prompt、Agent工具、知识库与办公自动化实训", service3Li3: "技术团队模型部署、RAG工程、Agent开发与系统集成课程", service3Li4: "结合企业真实业务资料设计案例演练和落地任务",
         capKicker: "TECH CAPABILITIES", capTitle: "技术能力与服务优势", capDesc: "稳链AI以工程化交付为核心，兼顾模型能力、数据安全、系统集成与后续运维，帮助企业获得可持续的AI生产力。", cap1Title: "模型接入与定制", cap1Desc: "支持多模型路由、私有模型部署、行业知识增强与业务规则融合。", cap2Title: "知识库与RAG工程", cap2Desc: "覆盖文档清洗、向量化、召回优化、答案溯源与知识质量评估。", cap3Title: "安全合规治理", cap3Desc: "围绕权限、审计、脱敏、访问控制与部署隔离，降低企业数据风险。", cap4Title: "持续运营优化", cap4Desc: "通过效果评估、反馈闭环、Prompt优化与流程迭代提升AI系统ROI。",
         deliveryKicker: "DELIVERY GUARANTEE", deliveryTitle: "以标准化交付路径，保障AI项目落地质量", delivery1Title: "需求诊断", delivery1Desc: "梳理业务流程、数据基础、系统现状与ROI目标，明确优先落地场景。", delivery2Title: "方案设计", delivery2Desc: "输出技术架构、部署方式、模型策略、Agent流程与安全治理方案。", delivery3Title: "工程实施", delivery3Desc: "完成环境搭建、模型接入、知识库建设、系统集成与业务验收。", delivery4Title: "运维迭代", delivery4Desc: "提供监控、培训、优化、版本迭代与长期技术支持，确保稳定运行。",
-        contactKicker: "CONTACT US", contactTitle: "从一个AI落地场景开始沟通", contactDesc: "无论你需要私有化部署、Agent自动化流程，还是企业AI培训，都可以联系稳链AI获取初步方案建议。", emailLabel: "邮箱", phoneLabel: "电话", apiLabel: "API服务", formName: "您的称呼 / 公司名称", formEmail: "联系邮箱", formNeed: "咨询方向：私有化部署 / Agent编排 / AI内训", formMessage: "简单描述你的业务场景或需求", formSubmit: "提交咨询", formNote: "表单为前端演示，可后续接入邮件、CRM或工单系统。", formSuccess: "已记录咨询信息。正式上线时建议接入后端邮件、CRM或工单系统。",
+        contactKicker: "CONTACT US", contactTitle: "从一个AI落地场景开始沟通", contactDesc: "无论你需要私有化部署、Agent自动化流程，还是企业AI培训，都可以联系稳链AI获取初步方案建议。", emailLabel: "邮箱", phoneLabel: "电话", apiLabel: "API服务", formName: "您的称呼 / 公司名称", formEmail: "联系邮箱", formPhone: "联系电话 / 手机", formNeed: "咨询方向：私有化部署 / Agent编排 / AI内训", formMessage: "简单描述你的业务场景或需求", formSubmit: "提交咨询",
         footerBrand: "稳链AI", footerDesc: "企业全链路AI服务商，专注私有化AI全栈交付、智能Agent编排体系与企业AI内训。", footerNavTitle: "导航", footerServices: "核心业务", footerCapabilities: "技术优势", footerDelivery: "交付保障", footerContact: "联系我们", footerContactTitle: "联系方式", footerApi: "稳链API服务", copyright: "© 2026 ZeroHub.AI 稳链AI. All rights reserved.", domain: "Official Website: ZeroHub.AI"
       },
       en: {
@@ -633,7 +637,7 @@
         service3Title: "Enterprise AI Training", service3Desc: "For executives, business teams and technical teams, we design AI literacy, implementation practice and customized course systems to improve organization-wide AI application capabilities.", service3Tag1: "AI Literacy", service3Tag2: "Implementation Training", service3Tag3: "Customized Curriculum", service3Li1: "Executive AI strategy awareness, opportunity identification and organizational upgrade paths", service3Li2: "Business team training on prompts, Agent tools, knowledge bases and office automation", service3Li3: "Technical courses on model deployment, RAG engineering, Agent development and system integration", service3Li4: "Use real enterprise materials to design scenario exercises and implementation tasks",
         capKicker: "TECH CAPABILITIES", capTitle: "Technical capabilities and service advantages", capDesc: "With engineering delivery at the core, Zero Hub AI balances model capability, data security, system integration and ongoing operations to deliver sustainable AI productivity.", cap1Title: "Model Access and Customization", cap1Desc: "Support multi-model routing, private model deployment, industry knowledge enhancement and business rule integration.", cap2Title: "Knowledge Base and RAG Engineering", cap2Desc: "Cover document cleaning, vectorization, retrieval optimization, answer traceability and knowledge quality evaluation.", cap3Title: "Security and Compliance Governance", cap3Desc: "Reduce enterprise data risks through permissions, auditing, masking, access control and deployment isolation.", cap4Title: "Continuous Operations Optimization", cap4Desc: "Improve AI system ROI through performance evaluation, feedback loops, prompt optimization and workflow iteration.",
         deliveryKicker: "DELIVERY GUARANTEE", deliveryTitle: "Standardized delivery path to ensure AI implementation quality", delivery1Title: "Requirement Diagnosis", delivery1Desc: "Review business processes, data foundations, system status and ROI goals to define priority scenarios.", delivery2Title: "Solution Design", delivery2Desc: "Deliver technical architecture, deployment mode, model strategy, Agent workflows and security governance plan.", delivery3Title: "Engineering Implementation", delivery3Desc: "Complete environment setup, model integration, knowledge base construction, system integration and business acceptance.", delivery4Title: "Operations and Iteration", delivery4Desc: "Provide monitoring, training, optimization, version iteration and long-term technical support for stable operation.",
-        contactKicker: "CONTACT US", contactTitle: "Start with one AI implementation scenario", contactDesc: "Whether you need private deployment, Agent automation or enterprise AI training, contact Zero Hub AI for initial solution advice.", emailLabel: "Email", phoneLabel: "Phone", apiLabel: "API Service", formName: "Your name / Company", formEmail: "Email address", formNeed: "Need: Private deployment / Agent orchestration / AI training", formMessage: "Briefly describe your business scenario or requirement", formSubmit: "Submit Inquiry", formNote: "This form is a front-end demo and can later be connected to email, CRM or ticketing systems.", formSuccess: "Inquiry information recorded. For production, connect this form to backend email, CRM or a ticketing system.",
+        contactKicker: "CONTACT US", contactTitle: "Start with one AI implementation scenario", contactDesc: "Whether you need private deployment, Agent automation or enterprise AI training, contact Zero Hub AI for initial solution advice.", emailLabel: "Email", phoneLabel: "Phone", apiLabel: "API Service", formName: "Your name / Company", formEmail: "Email address", formPhone: "Phone / Mobile", formNeed: "Need: Private deployment / Agent orchestration / AI training", formMessage: "Briefly describe your business scenario or requirement", formSubmit: "Submit Inquiry",
         footerBrand: "Zero Hub AI", footerDesc: "A full-cycle enterprise AI service provider focused on private full-stack AI delivery, intelligent Agent orchestration and enterprise AI training.", footerNavTitle: "Navigation", footerServices: "Services", footerCapabilities: "Capabilities", footerDelivery: "Delivery", footerContact: "Contact", footerContactTitle: "Contact", footerApi: "Zero Hub API Service", copyright: "© 2026 ZeroHub.AI Zero Hub AI. All rights reserved.", domain: "Official Website: ZeroHub.AI"
       }
     };
@@ -656,13 +660,6 @@
         if (translations[lang][key]) el.setAttribute("placeholder", translations[lang][key]);
       });
       langToggle.textContent = lang === "zh" ? "中文" : "English";
-    }
-
-    function handleConsultSubmit(event) {
-      event.preventDefault();
-      const note = document.getElementById("formNote");
-      note.textContent = translations[currentLang].formSuccess;
-      event.target.reset();
     }
 
     langToggle.addEventListener("click", () => applyLanguage(currentLang === "zh" ? "en" : "zh"));
