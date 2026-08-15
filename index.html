@@ -280,6 +280,108 @@
       gap: 18px;
     }
 
+    .api-showcase {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .api-intro {
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(37, 99, 235, 0.2), rgba(15, 23, 42, 0.82));
+      border: 1px solid rgba(96, 165, 250, 0.24);
+      box-shadow: var(--shadow);
+    }
+
+    .api-intro .section-title { margin-bottom: 18px; }
+    .api-intro .section-desc { max-width: none; }
+    .api-intro .hero-actions { margin: 28px 0 0; }
+
+    .api-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .metric-card {
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(15, 23, 42, 0.76);
+      border: 1px solid var(--border);
+    }
+
+    .metric-value {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #ffffff, #67e8f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .metric-card h3 { margin: 18px 0 6px; font-size: 17px; }
+    .metric-card p { color: var(--muted-light); font-size: 14px; }
+
+    .integration-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid var(--border);
+    }
+
+    .code-window {
+      overflow: hidden;
+      border-radius: 22px;
+      background: #020617;
+      border: 1px solid rgba(96, 165, 250, 0.22);
+      box-shadow: 0 22px 60px rgba(2, 6, 23, 0.42);
+    }
+
+    .code-window-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 16px;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.94);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      font-size: 12px;
+    }
+
+    .window-dots { display: flex; gap: 7px; }
+    .window-dots span { width: 8px; height: 8px; border-radius: 50%; background: #334155; }
+    .window-dots span:first-child { background: #22d3ee; }
+
+    .code-window pre {
+      padding: 24px;
+      overflow-x: auto;
+      color: #cbd5e1;
+      font: 13px/1.8 Consolas, "SFMono-Regular", monospace;
+      white-space: pre;
+    }
+
+    .code-key { color: #67e8f9; }
+    .code-string { color: #93c5fd; }
+
+    .integration-list { display: grid; gap: 16px; margin-top: 24px; }
+    .integration-item { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; }
+    .integration-item .icon { width: 42px; height: 42px; margin: 0; border-radius: 50%; font-size: 14px; }
+    .integration-item .icon::before { border-radius: 50%; }
+    .integration-item h3 { font-size: 17px; margin-bottom: 4px; }
+    .integration-item p { color: var(--muted-light); font-size: 14px; }
+
     .contact-panel {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -339,7 +441,7 @@
       .nav-links.active { display: flex; }
       .nav-links a { padding: 12px 10px; }
       .nav-actions .btn-secondary { display: none; }
-      .hero-grid, .service-panel, .service-panel:nth-child(even), .contact-panel, .footer-grid { grid-template-columns: 1fr; }
+      .hero-grid, .service-panel, .service-panel:nth-child(even), .api-showcase, .integration-panel, .contact-panel, .footer-grid { grid-template-columns: 1fr; }
       .hero-visual { min-height: 420px; }
       .grid-3, .grid-4, .capability-strip { grid-template-columns: repeat(2, 1fr); }
     }
@@ -351,7 +453,7 @@
       .hero { padding: 58px 0 42px; }
       .hero-actions, .footer-bottom { flex-direction: column; }
       .hero-actions .btn { width: 100%; }
-      .grid-3, .grid-4, .capability-strip { grid-template-columns: 1fr; }
+      .grid-3, .grid-4, .capability-strip, .api-metrics { grid-template-columns: 1fr; }
       .section-head { display: block; }
       .section-desc { margin-top: 12px; }
       .visual-card { left: 18px; right: 18px; bottom: 18px; padding: 18px; }
@@ -375,6 +477,7 @@
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Primary Navigation">
+        <a href="#api-platform" data-i18n="navApiPlatform">API平台</a>
         <a href="#services" data-i18n="navServices">核心业务</a>
         <a href="#capabilities" data-i18n="navCapabilities">技术优势</a>
         <a href="#delivery" data-i18n="navDelivery">交付保障</a>
@@ -415,6 +518,77 @@
               <div class="flow-item" data-i18n="flow2">模型定制</div>
               <div class="flow-item" data-i18n="flow3">Agent编排</div>
               <div class="flow-item" data-i18n="flow4">业务落地</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="api-platform">
+      <div class="container">
+        <div class="api-showcase">
+          <div class="api-intro">
+            <div class="section-kicker" data-i18n="apiKicker">ZERO HUB API</div>
+            <h2 class="section-title" data-i18n="apiTitle">一个接口，连接全球主流AI模型</h2>
+            <p class="section-desc" data-i18n="apiDesc">Zero Hub API面向企业与开发者提供统一的AI模型接入平台，兼容OpenAI接口协议，覆盖文本、推理、视觉与图像生成能力，让模型选型、切换与扩展更简单。</p>
+            <div class="feature-tags">
+              <span class="tag">GPT</span>
+              <span class="tag">Claude</span>
+              <span class="tag">Gemini</span>
+              <span class="tag" data-i18n="apiTagMore">更多前沿模型</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://api.zerohub.ai/" target="_blank" rel="noopener" data-i18n="apiExplore">进入模型广场 →</a>
+              <a class="btn btn-secondary" href="https://zerohub.apifox.cn/" target="_blank" rel="noopener" data-i18n="apiDocs">查看API文档</a>
+            </div>
+          </div>
+
+          <div class="api-metrics">
+            <article class="metric-card">
+              <div class="metric-value">500+</div>
+              <div><h3 data-i18n="metric1Title">模型统一接入</h3><p data-i18n="metric1Desc">聚合主流大模型与多模态能力，持续同步前沿模型。</p></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-value">OpenAI</div>
+              <div><h3 data-i18n="metric2Title">协议兼容</h3><p data-i18n="metric2Desc">沿用熟悉的接口规范，降低现有应用迁移与集成成本。</p></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-value">24/7</div>
+              <div><h3 data-i18n="metric3Title">持续服务保障</h3><p data-i18n="metric3Desc">全天候支持与稳定运营，为关键业务提供可靠响应。</p></div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-value">PAYG</div>
+              <div><h3 data-i18n="metric4Title">透明按量计费</h3><p data-i18n="metric4Desc">按实际用量灵活付费，账单清晰，余额长期有效。</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="integration">
+      <div class="container">
+        <div class="integration-panel">
+          <div class="code-window" aria-label="API integration example">
+            <div class="code-window-head"><div class="window-dots"><span></span><span></span><span></span></div><span>OpenAI-compatible API</span></div>
+            <pre><code><span class="code-key">const</span> client = <span class="code-key">new</span> OpenAI({
+  baseURL: <span class="code-string">"https://api.zerohub.ai/v1"</span>,
+  apiKey: process.env.ZEROHUB_API_KEY
+});
+
+<span class="code-key">const</span> response = <span class="code-key">await</span> client.chat.completions.create({
+  model: <span class="code-string">"your-model"</span>,
+  messages: [{ role: <span class="code-string">"user"</span>, content: <span class="code-string">"Hello"</span> }]
+});</code></pre>
+          </div>
+
+          <div>
+            <div class="section-kicker" data-i18n="integrationKicker">FAST INTEGRATION</div>
+            <h2 class="section-title" data-i18n="integrationTitle">接入简单，扩展从容</h2>
+            <p class="section-desc" data-i18n="integrationDesc">统一端点与标准接口减少重复开发，让团队把更多时间投入产品体验与业务创新。</p>
+            <div class="integration-list">
+              <div class="integration-item"><div class="icon">01</div><div><h3 data-i18n="integration1Title">高可用架构</h3><p data-i18n="integration1Desc">多区域节点与智能负载均衡，兼顾响应速度和服务连续性。</p></div></div>
+              <div class="integration-item"><div class="icon">02</div><div><h3 data-i18n="integration2Title">灵活模型路由</h3><p data-i18n="integration2Desc">按能力、成本与业务场景选择模型，便于快速切换和持续升级。</p></div></div>
+              <div class="integration-item"><div class="icon">03</div><div><h3 data-i18n="integration3Title">多模态能力</h3><p data-i18n="integration3Desc">统一支持文本、视觉理解和图像生成，覆盖更多产品场景。</p></div></div>
             </div>
           </div>
         </div>
@@ -590,6 +764,7 @@
         <div>
           <h3 data-i18n="footerNavTitle">导航</h3>
           <div class="footer-links">
+            <a href="#api-platform" data-i18n="footerApiPlatform">API平台</a>
             <a href="#services" data-i18n="footerServices">核心业务</a>
             <a href="#capabilities" data-i18n="footerCapabilities">技术优势</a>
             <a href="#delivery" data-i18n="footerDelivery">交付保障</a>
@@ -615,9 +790,10 @@
   <script>
     const translations = {
       zh: {
-        brandName: "Zero Hub AI", navServices: "核心业务", navCapabilities: "技术优势", navDelivery: "交付保障", navContact: "联系我们", navApi: "API入口",
+        brandName: "Zero Hub AI", navApiPlatform: "API平台", navServices: "核心业务", navCapabilities: "技术优势", navDelivery: "交付保障", navContact: "联系我们", navApi: "API入口",
         heroEyebrow: "全链路企业AI服务商 · ZeroHub.AI", heroTitleA: "让企业AI能力", heroTitleB: "安全部署，高效落地", heroSubtitle: "Zero Hub AI围绕私有化AI全栈交付、智能Agent编排体系与企业AI内训，帮助企业从基础设施、模型应用、业务流程到团队能力形成完整AI落地闭环。", heroPrimaryBtn: "立即体验Zero Hub API →", heroSecondaryBtn: "获取AI落地方案",
         visualTitle: "企业AI能力中枢", visualDesc: "统一连接模型、知识库、业务系统与Agent工作流，形成可运营、可审计、可扩展的企业AI底座。", flow1: "AI基础设施", flow2: "模型定制", flow3: "Agent编排", flow4: "业务落地",
+        apiKicker: "ZERO HUB API", apiTitle: "一个接口，连接全球主流AI模型", apiDesc: "Zero Hub API面向企业与开发者提供统一的AI模型接入平台，兼容OpenAI接口协议，覆盖文本、推理、视觉与图像生成能力，让模型选型、切换与扩展更简单。", apiTagMore: "更多前沿模型", apiExplore: "进入模型广场 →", apiDocs: "查看API文档", metric1Title: "模型统一接入", metric1Desc: "聚合主流大模型与多模态能力，持续同步前沿模型。", metric2Title: "协议兼容", metric2Desc: "沿用熟悉的接口规范，降低现有应用迁移与集成成本。", metric3Title: "持续服务保障", metric3Desc: "全天候支持与稳定运营，为关键业务提供可靠响应。", metric4Title: "透明按量计费", metric4Desc: "按实际用量灵活付费，账单清晰，余额长期有效。", integrationKicker: "FAST INTEGRATION", integrationTitle: "接入简单，扩展从容", integrationDesc: "统一端点与标准接口减少重复开发，让团队把更多时间投入产品体验与业务创新。", integration1Title: "高可用架构", integration1Desc: "多区域节点与智能负载均衡，兼顾响应速度和服务连续性。", integration2Title: "灵活模型路由", integration2Desc: "按能力、成本与业务场景选择模型，便于快速切换和持续升级。", integration3Title: "多模态能力", integration3Desc: "统一支持文本、视觉理解和图像生成，覆盖更多产品场景。",
         servicesKicker: "CORE SERVICES", servicesTitle: "三大核心服务，覆盖企业AI落地全链路", servicesDesc: "从底层部署到流程自动化，再到组织培训，Zero Hub AI帮助企业降低AI建设门槛，提升AI应用的稳定性、安全性与业务转化效率。",
         service1Title: "私有化AI全栈交付", service1Desc: "面向有数据安全、业务独立性和长期成本控制需求的企业，提供从AI基础设施规划、模型服务部署到数据安全合规的完整交付。", service1Tag1: "AI基础设施部署", service1Tag2: "模型定制开发", service1Tag3: "数据安全合规", service1Li1: "支持本地服务器、私有云、混合云等多种部署环境", service1Li2: "按业务场景接入或定制大模型、Embedding模型与RAG知识库", service1Li3: "配置权限隔离、日志审计、数据脱敏与访问控制策略", service1Li4: "适用于企业知识库、智能客服、内部助手与行业专属AI平台",
         service2Title: "智能Agent编排体系", service2Desc: "基于多Agent协同架构，为企业搭建可视化、可配置、可扩展的自动化工作流，让AI不止回答问题，而是参与任务执行。", service2Tag1: "多Agent协同架构", service2Tag2: "行业场景编排", service2Tag3: "自动化工作流", service2Li1: "支持任务拆解、工具调用、知识检索、结果校验等Agent链路", service2Li2: "可对接CRM、ERP、表格、数据库、客服系统与自有API", service2Li3: "适配销售运营、跨境电商、内容生产、客户服务与数据分析场景", service2Li4: "支持低代码流程配置，便于业务团队持续迭代",
@@ -625,12 +801,13 @@
         capKicker: "TECH CAPABILITIES", capTitle: "技术能力与服务优势", capDesc: "Zero Hub AI以工程化交付为核心，兼顾模型能力、数据安全、系统集成与后续运维，帮助企业获得可持续的AI生产力。", cap1Title: "模型接入与定制", cap1Desc: "支持多模型路由、私有模型部署、行业知识增强与业务规则融合。", cap2Title: "知识库与RAG工程", cap2Desc: "覆盖文档清洗、向量化、召回优化、答案溯源与知识质量评估。", cap3Title: "安全合规治理", cap3Desc: "围绕权限、审计、脱敏、访问控制与部署隔离，降低企业数据风险。", cap4Title: "持续运营优化", cap4Desc: "通过效果评估、反馈闭环、Prompt优化与流程迭代提升AI系统ROI。",
         deliveryKicker: "DELIVERY GUARANTEE", deliveryTitle: "以标准化交付路径，保障AI项目落地质量", delivery1Title: "需求诊断", delivery1Desc: "梳理业务流程、数据基础、系统现状与ROI目标，明确优先落地场景。", delivery2Title: "方案设计", delivery2Desc: "输出技术架构、部署方式、模型策略、Agent流程与安全治理方案。", delivery3Title: "工程实施", delivery3Desc: "完成环境搭建、模型接入、知识库建设、系统集成与业务验收。", delivery4Title: "运维迭代", delivery4Desc: "提供监控、培训、优化、版本迭代与长期技术支持，确保稳定运行。",
         contactKicker: "CONTACT US", contactTitle: "从一个AI落地场景开始沟通", contactDesc: "无论你需要私有化部署、Agent自动化流程，还是企业AI培训，都可以联系Zero Hub AI获取初步方案建议。", emailLabel: "邮箱", phoneLabel: "电话", apiLabel: "API服务", formName: "您的称呼 / 公司名称", formEmail: "联系邮箱", formPhone: "联系电话 / 手机", formNeed: "咨询方向：私有化部署 / Agent编排 / AI内训", formMessage: "简单描述你的业务场景或需求", formSubmit: "提交咨询",
-        footerBrand: "Zero Hub AI", footerDesc: "企业全链路AI服务商，专注私有化AI全栈交付、智能Agent编排体系与企业AI内训。", footerNavTitle: "导航", footerServices: "核心业务", footerCapabilities: "技术优势", footerDelivery: "交付保障", footerContact: "联系我们", footerContactTitle: "联系方式", footerApi: "Zero Hub API", copyright: "© 2026 Zero Hub AI. All rights reserved.", domain: "Official Website: ZeroHub.AI"
+        footerBrand: "Zero Hub AI", footerDesc: "企业全链路AI服务商，专注私有化AI全栈交付、智能Agent编排体系与企业AI内训。", footerNavTitle: "导航", footerApiPlatform: "API平台", footerServices: "核心业务", footerCapabilities: "技术优势", footerDelivery: "交付保障", footerContact: "联系我们", footerContactTitle: "联系方式", footerApi: "Zero Hub API", copyright: "© 2026 Zero Hub AI. All rights reserved.", domain: "Official Website: ZeroHub.AI"
       },
       en: {
-        brandName: "Zero Hub AI", navServices: "Services", navCapabilities: "Capabilities", navDelivery: "Delivery", navContact: "Contact", navApi: "API Portal",
+        brandName: "Zero Hub AI", navApiPlatform: "API Platform", navServices: "Services", navCapabilities: "Capabilities", navDelivery: "Delivery", navContact: "Contact", navApi: "API Portal",
         heroEyebrow: "Full-cycle Enterprise AI Service Provider · ZeroHub.AI", heroTitleA: "Deploy Enterprise AI", heroTitleB: "Securely and Efficiently", heroSubtitle: "Zero Hub AI delivers private full-stack AI implementation, intelligent Agent orchestration and enterprise AI training, helping companies build a complete AI implementation loop from infrastructure and model applications to workflows and team capability.", heroPrimaryBtn: "Try Zero Hub API →", heroSecondaryBtn: "Get AI Solution Advice",
         visualTitle: "Enterprise AI Capability Hub", visualDesc: "Connect models, knowledge bases, business systems and Agent workflows into an operable, auditable and scalable enterprise AI foundation.", flow1: "AI Infrastructure", flow2: "Model Customization", flow3: "Agent Orchestration", flow4: "Business Deployment",
+        apiKicker: "ZERO HUB API", apiTitle: "One API for leading AI models worldwide", apiDesc: "Zero Hub API gives enterprises and developers a unified AI model platform compatible with the OpenAI protocol, covering text, reasoning, vision and image generation for simpler model selection, switching and scaling.", apiTagMore: "More frontier models", apiExplore: "Explore Models →", apiDocs: "View API Docs", metric1Title: "Unified Model Access", metric1Desc: "Bring leading LLMs and multimodal capabilities together with continuous model updates.", metric2Title: "Protocol Compatible", metric2Desc: "Keep familiar API conventions and reduce migration and integration effort.", metric3Title: "Always-on Support", metric3Desc: "Round-the-clock support and reliable operations for business-critical workloads.", metric4Title: "Transparent Usage Billing", metric4Desc: "Pay only for actual usage with clear records and long-lived balances.", integrationKicker: "FAST INTEGRATION", integrationTitle: "Simple to integrate, ready to scale", integrationDesc: "A unified endpoint and standard interface reduce repetitive engineering so teams can focus on product experience and business innovation.", integration1Title: "High Availability", integration1Desc: "Multi-region nodes and intelligent load balancing support fast, continuous service.", integration2Title: "Flexible Model Routing", integration2Desc: "Choose models by capability, cost and scenario, then switch or upgrade with ease.", integration3Title: "Multimodal Capabilities", integration3Desc: "Support text, visual understanding and image generation through one platform.",
         servicesKicker: "CORE SERVICES", servicesTitle: "Three core services covering the full enterprise AI lifecycle", servicesDesc: "From infrastructure deployment and workflow automation to organizational training, Zero Hub AI helps companies lower AI adoption barriers and improve stability, security and business conversion.",
         service1Title: "Private Full-stack AI Delivery", service1Desc: "For enterprises with data security, business independence and long-term cost-control needs, we provide complete delivery from AI infrastructure planning and model service deployment to data security compliance.", service1Tag1: "AI Infrastructure", service1Tag2: "Model Customization", service1Tag3: "Data Security Compliance", service1Li1: "Support local servers, private cloud and hybrid cloud deployment environments", service1Li2: "Integrate or customize LLMs, embedding models and RAG knowledge bases based on business scenarios", service1Li3: "Configure permission isolation, log auditing, data masking and access control policies", service1Li4: "Suitable for enterprise knowledge bases, AI customer service, internal assistants and industry AI platforms",
         service2Title: "Intelligent Agent Orchestration", service2Desc: "Based on multi-Agent collaboration, we build visual, configurable and scalable automated workflows so AI can move beyond answering questions and participate in task execution.", service2Tag1: "Multi-Agent Architecture", service2Tag2: "Industry Workflow Design", service2Tag3: "Automation Workflow", service2Li1: "Support task decomposition, tool calling, knowledge retrieval and result verification", service2Li2: "Connect with CRM, ERP, spreadsheets, databases, customer service systems and proprietary APIs", service2Li3: "Fit sales operations, cross-border commerce, content production, customer service and data analysis", service2Li4: "Support low-code workflow configuration for continuous business-side iteration",
@@ -638,7 +815,7 @@
         capKicker: "TECH CAPABILITIES", capTitle: "Technical capabilities and service advantages", capDesc: "With engineering delivery at the core, Zero Hub AI balances model capability, data security, system integration and ongoing operations to deliver sustainable AI productivity.", cap1Title: "Model Access and Customization", cap1Desc: "Support multi-model routing, private model deployment, industry knowledge enhancement and business rule integration.", cap2Title: "Knowledge Base and RAG Engineering", cap2Desc: "Cover document cleaning, vectorization, retrieval optimization, answer traceability and knowledge quality evaluation.", cap3Title: "Security and Compliance Governance", cap3Desc: "Reduce enterprise data risks through permissions, auditing, masking, access control and deployment isolation.", cap4Title: "Continuous Operations Optimization", cap4Desc: "Improve AI system ROI through performance evaluation, feedback loops, prompt optimization and workflow iteration.",
         deliveryKicker: "DELIVERY GUARANTEE", deliveryTitle: "Standardized delivery path to ensure AI implementation quality", delivery1Title: "Requirement Diagnosis", delivery1Desc: "Review business processes, data foundations, system status and ROI goals to define priority scenarios.", delivery2Title: "Solution Design", delivery2Desc: "Deliver technical architecture, deployment mode, model strategy, Agent workflows and security governance plan.", delivery3Title: "Engineering Implementation", delivery3Desc: "Complete environment setup, model integration, knowledge base construction, system integration and business acceptance.", delivery4Title: "Operations and Iteration", delivery4Desc: "Provide monitoring, training, optimization, version iteration and long-term technical support for stable operation.",
         contactKicker: "CONTACT US", contactTitle: "Start with one AI implementation scenario", contactDesc: "Whether you need private deployment, Agent automation or enterprise AI training, contact Zero Hub AI for initial solution advice.", emailLabel: "Email", phoneLabel: "Phone", apiLabel: "API Service", formName: "Your name / Company", formEmail: "Email address", formPhone: "Phone / Mobile", formNeed: "Need: Private deployment / Agent orchestration / AI training", formMessage: "Briefly describe your business scenario or requirement", formSubmit: "Submit Inquiry",
-        footerBrand: "Zero Hub AI", footerDesc: "A full-cycle enterprise AI service provider focused on private full-stack AI delivery, intelligent Agent orchestration and enterprise AI training.", footerNavTitle: "Navigation", footerServices: "Services", footerCapabilities: "Capabilities", footerDelivery: "Delivery", footerContact: "Contact", footerContactTitle: "Contact", footerApi: "Zero Hub API Service", copyright: "© 2026 ZeroHub.AI Zero Hub AI. All rights reserved.", domain: "Official Website: ZeroHub.AI"
+        footerBrand: "Zero Hub AI", footerDesc: "A full-cycle enterprise AI service provider focused on private full-stack AI delivery, intelligent Agent orchestration and enterprise AI training.", footerNavTitle: "Navigation", footerApiPlatform: "API Platform", footerServices: "Services", footerCapabilities: "Capabilities", footerDelivery: "Delivery", footerContact: "Contact", footerContactTitle: "Contact", footerApi: "Zero Hub API Service", copyright: "© 2026 ZeroHub.AI Zero Hub AI. All rights reserved.", domain: "Official Website: ZeroHub.AI"
       }
     };
 
